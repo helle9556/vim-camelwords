@@ -6,19 +6,26 @@ lowercase (`w`, `b`, `e`, `ge`) and uppercase (`W`, `B`, `E`, `gE`) motions.
 This plugin defines a third kind - _camelwords_ - letting you navigate more
 easily within CamelCase and snake\_case words.
 
-Vim's help files defines as `word` as a sequence of letters, digits and
+Vim's help files describe a `word` as a sequence of letters, digits and
 underscores (call these keywords), or a sequence of other non-blank
 characters, separated with white space.  A camelword is much like a `word`,
 but divides keywords into smaller parts.  The different parts are listed
 below, in order of precedence.
 
-* A _number_ consists of a sequence of digits.
-* A _camelhump_ consists of an uppercase character followed by a sequence of
+* _Numbers_ consist of a sequence of digits.
+* _Camelhumps_ consist of an uppercase character followed by a sequence of
   lowercase characters.
-* An _uppercase word_ consists of a sequence of uppercase characters.
-* A _lowercase word_ consists of a sequence of lowercase characters.
+* _Uppercase words_ consist of a sequence of uppercase characters.
+* _Lowercase words_ consist of a sequence of lowercase characters.
 
 Underscores are never treated as part of a camelword.
+
+Below are some examples. The top line shows where the `words` are, the bottom
+line shows where the camelwords are.
+
+    ┌───────────┐  ┌─────────────┐  ┌─────┐  ┌───────────┐  ┌────────┐
+    CamelCaseWord  snake_case_word  OpenSSL  SOME_CONSTANT  123testing
+    └───┘└──┘└──┘  └───┘ └──┘ └──┘  └──┘└─┘  └──┘ └──────┘  └─┘└─────┘
 
 Installation
 ------------
@@ -42,7 +49,7 @@ In order for the plugin to create any mappings, you have to tell it what keys
 The plugin will then create mappings corresponding to `w`, `b`, `e`, `ge`,
 `iw` and `aw`, using whatever keys you specified, and matching Vim's default
 behavior as closely as possible (apart from operating on camelwords instead of
-`words` of course).
+`words`, of course).
 
 Unfortunately, some setups have problems with mapping the ALT key.  On my Mac,
 I have to write like this:
@@ -51,9 +58,16 @@ I have to write like this:
     let g:camelwords_mapping_b = "∫"
     let g:camelwords_mapping_e = "é"
 
-The special characters are what I get when pressing `<A-W>` etc. in
-insert-mode.  It is also possible to specify `w`, `b` and `e`, to have the
-plugin take over Vim's native commands, should you so desire.
+The special characters are what I get when pressing `<A-W>` etc. in insert
+mode.  Please note that those are what I get with a Danish keyboard, it might
+not work to just copy the above. Please consult the internet if you cannot get
+the ALT mappings to work, it probably has nothing to do with this plugin.
+
+If you cannot get the ALT mappings to work, or if you prefer otherwise it is
+of course possible to specify whichever sequences you like.  Some people might
+like to use something like `<leader>w`, etc.  It is also possible to specify
+`w`, `b` and `e`, to have the plugin take over Vim's native commands, should
+you so desire.
 
 Credits
 -------
