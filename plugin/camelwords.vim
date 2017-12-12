@@ -135,6 +135,21 @@ function! camelwords#around(count)
 endfunction
 
 " }}}
+" Default values {{{
+
+if !exists("g:camelwords_mapping_w")
+    let g:camelwords_mapping_w = "w"
+endif
+
+if !exists("g:camelwords_mapping_b")
+    let g:camelwords_mapping_b = "b"
+endif
+
+if !exists("g:camelwords_mapping_e")
+    let g:camelwords_mapping_e = "e"
+endif
+
+
 " Mappings {{{
 
 if (exists("g:camelwords_mapping_w"))

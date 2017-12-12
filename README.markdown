@@ -37,22 +37,22 @@ plugin manager, check out [Vundle](https://github.com/gmarik/Vundle.vim) or
 Configuration
 -------------
 
-In order for the plugin to create any mappings, you have to tell it what keys
-(or key sequences) you want it to use as corresponding to `w`, `b` and `e` for
-`words`.  I recommend `<A-W>`, `<A-B>` and `<A-E>`.  Put the following in your
-`.vimrc`:
+You can specify what keys (or key sequences) you want it use as corresponding
+to `w`, `b` and `e` for `words`.  I recommend using Alt-W, Alt-B and Alt-E,
+which can unfortunately be a problem to map on some setups.  The default is to
+use a sequence that gives those mappings in a standard terminal.  Set these
+globals in your `.vimrc` to customize (shown is the default):
 
-    let g:camelwords_mapping_w = "<A-W>"
-    let g:camelwords_mapping_b = "<A-B>"
-    let g:camelwords_mapping_e = "<A-E>"
+    let g:camelwords_mapping_w = "w"
+    let g:camelwords_mapping_b = "b"
+    let g:camelwords_mapping_e = "e"
 
 The plugin will then create mappings corresponding to `w`, `b`, `e`, `ge`,
 `iw` and `aw`, using whatever keys you specified, and matching Vim's default
 behavior as closely as possible (apart from operating on camelwords instead of
 `words`, of course).
 
-Unfortunately, some setups have problems with mapping the ALT key.  On my Mac,
-I have to write like this:
+On my Mac, I have to write like this:
 
     let g:camelwords_mapping_w = "∑"
     let g:camelwords_mapping_b = "∫"
